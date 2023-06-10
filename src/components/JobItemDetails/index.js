@@ -84,7 +84,7 @@ class JobItemDetails extends Component {
         lifeAtCompany,
         isLoading: initialConstant.success,
       })
-    } else if (jobItemResponse.status === 400) {
+    } else {
       this.setState({isLoading: initialConstant.failure})
     }
   }
@@ -174,12 +174,7 @@ class JobItemDetails extends Component {
           <h1 className="similiar-jobs-heading">Similar Jobs</h1>
           <ul className="similar-job-list-container">
             {similarJobsList.map(each => (
-              <SimilarJobs
-                key={each.id}
-                similarJobDetails={each}
-                isLoading={isLoading}
-                refreshThePage={this.refreshThePage}
-              />
+              <SimilarJobs key={each.id} similarJobDetails={each} />
             ))}
           </ul>
         </div>

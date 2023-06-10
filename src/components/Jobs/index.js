@@ -94,8 +94,9 @@ class Jobs extends Component {
         jobsList: updatedJobsData,
         isLoading: initialConstants.success,
       })
+    } else {
+      this.setState({isLoading: initialConstants.failure})
     }
-    this.setState({isLoading: initialConstants.failure})
   }
 
   onChangeSearchInput = event => {
@@ -122,8 +123,9 @@ class Jobs extends Component {
         profileList: updatedProfileDetails,
         profileLoding: initialConstants.success,
       })
+    } else {
+      this.setState({profileLoding: initialConstants.failure})
     }
-    this.setState({profileLoding: initialConstants.failure})
   }
 
   onChangeSalary = event => {

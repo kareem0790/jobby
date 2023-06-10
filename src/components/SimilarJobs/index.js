@@ -5,7 +5,7 @@ import {BsBriefcaseFill} from 'react-icons/bs'
 import './index.css'
 
 const SimilarJobs = props => {
-  const {similarJobDetails, isLoading, refreshThePage} = props
+  const {similarJobDetails} = props
   const {
     companyLogoUrl,
     employmentType,
@@ -15,11 +15,7 @@ const SimilarJobs = props => {
     title,
   } = similarJobDetails
 
-  const refreshPage = () => {
-    refreshThePage()
-  }
-
-  const renderSimilarJobSuccessView = () => (
+  return (
     <li className="similar-jobs-list-item">
       <div className="similar-jobs-company-container">
         <img
@@ -35,7 +31,6 @@ const SimilarJobs = props => {
           </div>
         </div>
       </div>
-
       <h1 className="similar-job-description-heading">Description</h1>
       <p className="similar-job-description-content">{jobDescription}</p>
       <div className="similar-job-location-employement-icon-container">
@@ -50,33 +45,6 @@ const SimilarJobs = props => {
       </div>
     </li>
   )
-
-  const renderSimilarJobsFailureView = () => (
-    <div className="similar-job-failure-container">
-      <img
-        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
-        alt="failure view"
-        className="similar-job-failure-img"
-      />
-      <h1 className="similar-job-failure-heading">
-        Oops! Something Went Wrong
-      </h1>
-      <p className="similar-job-failure">
-        We cannot seem to find the page you are looking for.
-      </p>
-      <button type="button" className="similar-job-btn" onClick={refreshPage}>
-        Retry
-      </button>
-    </div>
-  )
-
-  const result = isLoading
-    ? renderSimilarJobSuccessView()
-    : renderSimilarJobsFailureView()
-  if (result === true) {
-    return renderSimilarJobSuccessView()
-  }
-  return renderSimilarJobsFailureView()
 }
 
 export default SimilarJobs
